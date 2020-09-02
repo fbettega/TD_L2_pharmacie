@@ -1,0 +1,124 @@
+---
+title: "Controle Continu L2 Pharmacie TD Statistique"
+author: "Bettega Francois"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:  
+    pdf_document: 
+      keep_tex: False
+      toc: False
+      toc_depth: 3
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding, output_dir = "knit") })
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+
+# Introduction
+Le 17 mars paraissait *Hydroxychloroquine and azithromycin as a treatment of COVID-19: results of an open label non-randomized clinical trial* l'article marseillé d'évaluation de l'efficacité de l'Hydroxychloroquine et azithromycin dans le traitement du COVID-19. 
+Je vous propose dans ce contrôle continu de reproduire une partie des traitements statistiques effectuées dans cet artcile.
+
+
+Pour des questions de simplicité je vous fournis des jeux de données nettoyer plus facile d'utilisation.Si vous êtes intéressé par les transformations que j'ai effectuées sur le jeux de données de l'article pour arriver au données fournis avec ce contrôle continu. Vous pourrez retrouver le code R à l'adresse suivante *Francois insère un repo github ici* si vous êtes curieux.
+
+Vous retrouverez un fichier contenant les données pour chacune des questions les fichiers étant nommer à partir du numéro de la questions.
+
+Vous pouvez me contacter à l'adresse suivante pour toutes question : francois.bettega+L2_pharma@gmail.com
+
+
+
+# Modalité d'évaluations  
+
+Vous serez évaluer sur :
+    -le choix à justifier des tests statistiques (40%) ainsi que sur les hypothèse qui doivent être vérifié avant de pratiquer le test
+    - votre rédactions et interprétations des résultats de ces tests (50%) 
+    - Sur les résultats numériques obtenue(10%). 
+    
+Je vous encourage à coopéré et échangé entre les groupes tout en vous prévenant qu'une attention particulière sera porté à la détections du plagiat y compris dans votre code R. 
+
+La forme du compte rendu attendu est constitué de deux document pdf[^1] contenant pour chaque questions : 
+    - le test que vous avez effectué pourquoi ?
+    - Le résultat de ce test, ainsi que votre interprétations.
+    
+[^1]: Pour rappel vous pouvez facilement crée un document pdf à partir de word ou google doc en utilisant *enregistrer sous*.
+
+Un fichier R contenant le code R ayant servie à produire les test commenté dans le pdf. 
+**Attention les P-value et test absent du code R mais commenté ou les hypothèse non vérifié dans le code R conduiront à une perte de points -0.5pts par occurence**
+
+Si vous le souhaitez il est aussi possible de me rendre un seul fichier Rmarkdown contenant à la fois le code R et vos commentaires.  
+
+TD noté sur 10 points (ramener sur 20)  6 points de questions +1 points si vos code R tourne sans erreur + 1 points sur la qualité générale du rapport + 2points sur l'utilisation de graphique pour visualiser les données (0.5 pts par graphique pertinent) **je m'autorise à retirer des points en cas d'abus par exemple si vous produisez un grand nombres de graphiques par questions sans réfléchir à leur pertinences**.
+
+
+A cela s'ajoute un points bonus sur les intérprétations biologique et pharmaceutique.
+un points bonus sur une représentation graphique non présenté en TD.
+0.5 points Bonus sur le fait de commenter votre code R en utilisant : \# suivie de texte pour expliquer ce que vous essayer de faire
+
+
+# Question 1 (1pts)
+
+
+On vous affirme que l'ages des patients n'est pas représentatifs de l'age moyen de la population française qui est de 41.2 ans. Testez cette affirmation.
+
+# Question 2 (1pts)
+
+L'age des patients est il différentes dans les 2 groupes traité et non traité par Hydroxychloroquine ?  
+
+Pour sectionner les patients par groupes vous pouvez utiliser le code ci-dessous
+```{r eval=FALSE, echo=TRUE}
+age_tt <- question_2$age[question_2$hydroxychloroquine == "Yes"]
+
+age_non_tt <- question_2$age[question_2$hydroxychloroquine == "No"]
+```
+
+
+# Question 3 (1pts)  
+
+Pour sectionner les patients par groupes vous pouvez utiliser le code ci-dessous
+```{r eval=FALSE, echo=TRUE}
+serum_hydroxy_azitro <- question_3$hydroxychloroquine[question_3$azytro == "Yes"]
+
+serum_hydroxy_non_azitro <- question_3$hydroxychloroquine$azytro == "No"]
+```
+On vous affirme que la moyenne de la concentration d'Hydroxychloroquine dans le serum des patients traité par Azithromycin est différentes de la concentrations moyennes des patients non traité par Azithromycin. Testez cette affirmation en utilisant un test non paramétrique.  
+
+
+
+
+
+
+
+# Question 4 (4 pts)
+
+Le papier tente d'évaluer si les patients traité par Hydroxychloroquine ont-il des PCR au jour 6 différents des patients non traité. Je vous propose pour les questions suivante de reproduire cette annalyse de deux manière selon comment on traite les patients qui n'ont pas reçu de PCR au jour 6.
+
+La première (question 4.1) comme dans le papier considère que les patients traité ont une PCR négative et les patients non traité on une PCR positive
+
+La seconde (question 4.2) les patients n'ayant pas reçu de PCR au jour 6 sont simplement écarté.
+
+
+## Question 4.1 (1.25 pts)
+**Je vous laisse adapter le code fournis plus haut pour selectionner les patients par groupes**
+Avec le jeux de données question_4_1 existe les patients traité par Hydroxychloroquine ont-il des PCR au jour 6 différents des patients non traité. 
+
+## Question 4.2 (1.25 pts)
+Avec le jeux de données question_4_2 existe les patients traité par Hydroxychloroquine ont-il des PCR au jour 6 différents des patients non traité. 
+
+**Normalement vous pouvez réutiliser exactement le meme code que pour la question 4_1**
+
+
+
+## commenté et comparer ces résutlats (0.5 pts)
+
+## Conclusion (1pts bonus)
+
+Résultat dans un contexte pharmaceutique ?
+
+Votre avis sur ces méthode d'imputations et leurs conséquences ?
+
+Autres surprenez moi !!
+
