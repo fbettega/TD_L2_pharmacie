@@ -15,6 +15,7 @@ knit: (function(inputFile, encoding) {
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
+source(file = "Data_CC_generator.R")
 ```
 
 
@@ -23,7 +24,7 @@ Le 17 mars paraissait *Hydroxychloroquine and azithromycin as a treatment of COV
 Je vous propose dans ce contrôle continu de reproduire une partie des traitements statistiques effectuées dans cet artcile.
 
 
-Pour des questions de simplicité je vous fournis des jeux de données nettoyer plus facile d'utilisation.Si vous êtes intéressé par les transformations que j'ai effectuées sur le jeux de données de l'article pour arriver au données fournis avec ce contrôle continu. Vous pourrez retrouver le code R à l'adresse suivante *Francois insère un repo github ici* si vous êtes curieux.
+Pour des questions de simplicité je vous fournis des jeux de données nettoyer plus facile d'utilisation.Si vous êtes intéressé par les transformations que j'ai effectuées sur le jeux de données de l'article pour arriver au données fournis avec ce contrôle continu. Vous pourrez retrouver le code R à l'adresse suivante *https://github.com/fbettega/TD_L2_pharmacie/* dans  [ce fichier](https://github.com/fbettega/TD_L2_pharmacie/blob/master/Data_CC_generator.R)  si vous êtes curieux.
 
 Vous retrouverez un fichier contenant les données pour chacune des questions les fichiers étant nommer à partir du numéro de la questions.
 
@@ -80,9 +81,10 @@ age_non_tt <- question_2$age[question_2$hydroxychloroquine == "No"]
 
 Pour sectionner les patients par groupes vous pouvez utiliser le code ci-dessous
 ```{r eval=FALSE, echo=TRUE}
-serum_hydroxy_azitro <- question_3$hydroxychloroquine[question_3$azytro == "Yes"]
+serum_hydroxy_azitro <- question_3$hydroxychloroquine_Q3[question_3$azytro == "Yes"]
 
-serum_hydroxy_non_azitro <- question_3$hydroxychloroquine$azytro == "No"]
+serum_hydroxy_non_azitro <- question_3$hydroxychloroquine_Q3[question_3$azytro == "No"]
+
 ```
 On vous affirme que la moyenne de la concentration d'Hydroxychloroquine dans le serum des patients traité par Azithromycin est différentes de la concentrations moyennes des patients non traité par Azithromycin. Testez cette affirmation en utilisant un test non paramétrique.  
 

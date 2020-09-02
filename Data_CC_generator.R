@@ -47,3 +47,8 @@ Donnee_test$PCR <- gsub("\\d+", "POS", Donnee_test$D6)
 
 Donnee_test$PCR <- as.factor(Donnee_test$PCR )
 data_set_pharma(data.frame(PCR_2 = Donnee_test$PCR, hydroxychloroquine_2 = Donnee_test$Hydroxychloroquine.treatment),"question_4_2")
+
+library(Rcompression)
+files <- list.files("data_set_cc/", recursive=TRUE)
+zip::zipr("data_set_cc.zip",files = c("data_set_cc"),recurse = TRUE)
+
