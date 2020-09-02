@@ -15,7 +15,7 @@ knit: (function(inputFile, encoding) {
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
-source(file = "Data_CC_generator.R")
+source("Data_CC_generator.R", encoding = 'UTF-8')
 ```
 
 

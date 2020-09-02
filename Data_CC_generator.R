@@ -1,13 +1,5 @@
-
-Hydroxychloroquine <- read.table("data/chloroquin_data_set.txt",sep=" ",header = TRUE,fileEncoding = "utf8")
-data_set_pharma <- function(df,path){
-  write.csv(df,paste0("data_set_cc/",path,".csv"), row.names = FALSE)
-  xlsx::write.xlsx(df,paste0("data_set_cc/",path,".xlsx"), row.names = FALSE)
-}
-
-
 # Question 1 
-Hydroxychloroquine <- read.table("chloroquin/chloroquin_data_set.txt",sep=" ",header = TRUE,fileEncoding = "utf8")
+Hydroxychloroquine <- read.table("data/chloroquin_data_set.txt",sep=" ",header = TRUE,fileEncoding = "utf8")
 data_set_pharma <- function(df,path){
   write.csv(df,paste0("data_set_cc/",path,".csv"), row.names = FALSE)
   xlsx::write.xlsx(df,paste0("data_set_cc/",path,".xlsx"), row.names = FALSE)
@@ -48,7 +40,7 @@ Donnee_test$PCR <- gsub("\\d+", "POS", Donnee_test$D6)
 Donnee_test$PCR <- as.factor(Donnee_test$PCR )
 data_set_pharma(data.frame(PCR_2 = Donnee_test$PCR, hydroxychloroquine_2 = Donnee_test$Hydroxychloroquine.treatment),"question_4_2")
 
-library(Rcompression)
+
 files <- list.files("data_set_cc/", recursive=TRUE)
 zip::zipr("data_set_cc.zip",files = c("data_set_cc"),recurse = TRUE)
 
