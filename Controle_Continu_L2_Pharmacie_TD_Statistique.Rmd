@@ -15,7 +15,7 @@ knit: (function(inputFile, encoding) {
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
 source("Data_CC_generator.R", encoding = 'UTF-8')
 ```
@@ -38,11 +38,13 @@ Vous pouvez me contacter à l'adresse suivante pour toutes question : francois.b
 
 # Modalité d'évaluations  
 
-Ce devoir sera à rendre pour le 30 septembres à l'adresse mail suivante : francois.bettega+L2_pharma@gmail.com 
-Vous serez évaluer sur :
-    -le choix à justifier des tests statistiques (40%) ainsi que sur les hypothèse qui doivent être vérifié avant de pratiquer le test
-    - votre rédactions et interprétations des résultats de ces tests (50%) 
-    - Sur les résultats numériques obtenue(10%). 
+Ce devoir sera à rendre pour le 30 septembres à l'adresse mail suivante : francois.bettega+L2_pharma@gmail.com.  
+Vous serez évaluer sur :  
+
+
+* le choix à justifier des tests statistiques (40%) ainsi que sur les hypothèse qui doivent être vérifié avant de pratiquer le test
+* votre rédactions et interprétations des résultats de ces tests (50%) 
+* Sur les résultats numériques obtenue(10%). 
     
 Je vous encourage à coopéré et échangé entre les groupes tout en vous prévenant qu'une attention particulière sera porté à la détections du plagiat y compris dans votre code R. 
 
@@ -75,19 +77,36 @@ un points bonus sur une représentation graphique non présenté en TD.
 Les points au dessus des questions sont données a titre indicatifs et sont suceptible de changer.
 
 # Aide à l'ouverture des fichiers de données
-Vous avez un jeux de données par questions il s'appelle *question_x* et je vous les fournis au format xlsx et csv.
+Vous avez un jeux de données par questions il s'appelle **question_x** et je vous les fournis au format xlsx et csv.
 
 
 Si vous mettez les fichiers dans le même dossiers que votre scipt Rmd vous pouvez utilisez la ligne de code présenté au début de chaque question pour ouvrir le fichier approprié.
 
 
-Sinon vous pouvez utiliser le bouton en haut a droite de l'interface de R studio
-**Screen shot**
-Selectionner les paramètres approprié 
-**Screen shot**
-Ensuite faite un copié collé de la seconde ligne de commande dans votre terminal R
-**Screen shot**
-# Question 1 (1pts)
+Sinon vous pouvez utiliser le bouton en haut a droite de l'interface de R studio  
+
+
+```{r}
+knitr::include_graphics("images/print_screen1.pdf")
+```
+
+Selectionner les paramètres approprié   
+
+
+```{r}
+knitr::include_graphics("images/print_screen2.pdf")
+```
+
+Ensuite faite un copié collé de la seconde ligne de commande dans votre terminal R   
+
+
+```{r}
+knitr::include_graphics("images/print_screen3.pdf")
+```
+
+
+  
+# Question 1 (1pts)  
 ```{r eval=FALSE, echo=TRUE}
 question_1 <- read.csv("data_set_cc/question_1.csv")
 ```
