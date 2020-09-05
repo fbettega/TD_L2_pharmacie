@@ -13,7 +13,7 @@ data_set_pharma(data.frame(hydroxychloroquine = Hydroxychloroquine$Hydroxychloro
 
 # Question 3 
 Question_3_df <- Hydroxychloroquine[Hydroxychloroquine$Hydroxychloroquine.serum.concentration.µg.ml !="-",]
-data_set_pharma(data.frame(hydroxychloroquine_Q3 = Question_3_df$Hydroxychloroquine.treatment,azytro = Question_3_df$Azithromycin.treatment),"question_3")
+data_set_pharma(data.frame(hydroxychloroquine_Q3 = Question_3_df$Hydroxychloroquine.serum.concentration.µg.ml,azytro = Question_3_df$Azithromycin.treatment),"question_3")
 
 
 
