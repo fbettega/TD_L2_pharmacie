@@ -1,6 +1,6 @@
 ---
-title: "Controle Continu L2 Pharmacie TD Statistique"
-author: "Bettega Francois"
+title: "Contrôle continu L2 Pharmacie TD Statistique"
+author: "BETTEGA Francois"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:  
     pdf_document: 
@@ -22,82 +22,83 @@ source("Data_CC_generator.R", encoding = 'UTF-8')
 
 
 # Introduction
-Le 17 mars paraissait *Hydroxychloroquine and azithromycin as a treatment of COVID-19: results of an open label non-randomized clinical trial* l'article marseillé d'évaluation de l'efficacité de l'Hydroxychloroquine et azithromycin dans le traitement du COVID-19. 
-Je vous propose dans ce contrôle continu de reproduire une partie des traitements statistiques effectuées dans cet artcile.
+Le 17 mars 2020 *Hydroxychloroquine and azithromycin as a treatment of COVID-19: results of an open label non-randomized clinical trial* était ùisen ligne, l'article marseillais d'évaluation de l'efficacité de l'hydroxychloroquine et azithromycine dans le traitement du COVID-19. 
+Je vous propose dans ce contrôle continu de reproduire une partie des traitements statistiques présentés dans cet article.
 
 
-Pour des questions de simplicité je vous fournis des jeux de données nettoyer plus facile d'utilisation.Si vous êtes intéressé par les transformations que j'ai effectuées sur le jeux de données de l'article pour arriver au données fournis avec ce contrôle continu. Vous pourrez retrouver le code R à l'adresse suivante *https://github.com/fbettega/TD_L2_pharmacie/* dans  [ce fichier](https://github.com/fbettega/TD_L2_pharmacie/blob/master/Data_CC_generator.R)  si vous êtes curieux.
+Pour des questions de simplicité, les jeux de données fournis sont nettoyés. Si vous êtes intéressés par les transformations effectuées sur les jeux de données, vous pourrez retrouver le code R à l'adresse suivante *https://github.com/fbettega/TD_L2_pharmacie/* dans  [ce fichier](https://github.com/fbettega/TD_L2_pharmacie/blob/master/Data_CC_generator.R).
 
-Vous retrouverez un fichier contenant les données pour chacune des questions les fichiers étant nommer à partir du numéro de la questions.
+Vous trouverez un fichier contenant les données pour chacune des questions, les fichiers étant nommés à partir du numéro de la question.
 
-Vous pouvez me contacter à l'adresse suivante pour toutes question : francois.bettega+L2_pharma@gmail.com 
+Vous pouvez me contacter à l'adresse suivante pour toutes questions : francois.bettega+L2_pharma@gmail.com 
 
-**Je n'ai pas réussi a ouvrir le jeux de données ne sera pas une excuse acceptable si vous ne m'avez pas posé de question.**
-
-
-
-# Modalité d'évaluations  
-
-Ce devoir sera à rendre pour le 30 septembres à l'adresse mail suivante : francois.bettega+L2_pharma@gmail.com.  
-Vous serez évaluer sur :  
+**"Je n'ai pas réussi à ouvrir les jeux de données" ne sera pas une excuse acceptable en l'absence de sollicitation.**
 
 
-* le choix à justifier des tests statistiques (40%) ainsi que sur les hypothèse qui doivent être vérifié avant de pratiquer le test
-* votre rédactions et interprétations des résultats de ces tests (50%) 
-* Sur les résultats numériques obtenue(10%). 
+
+# Modalités d'évaluation  
+
+Ce devoir sera à rendre pour le 30 septembre à l'adresse mail suivante : francois.bettega+L2_pharma@gmail.com.  
+Vous serez évalués sur :  
+
+
+* le choix justifié des tests statistiques (40%) ainsi que sur les hypothèses qui doivent être vérifiées avant de pratiquer le test
+* votre rédaction et  vos interprétations des résultats de ces tests (50%) 
+* les résultats numériques obtenus (10%). 
     
-Je vous encourage à coopéré et échangé entre les groupes tout en vous prévenant qu'une attention particulière sera porté à la détections du plagiat y compris dans votre code R. 
+Je vous encourage à coopérer et échanger entre les groupes tout en vous prévenant qu'une attention particulière sera portée à la détection du plagiat y compris dans votre code R. 
 
-La forme du compte rendu attendu est constitué de deux fichiers votre compte rendu au format ou vous l'aurez compilé (knit) (HTML,PDF,Word...) ainsi que le fichier Rmarkdown (.Rmd) contenant pour chaque questions : 
-    - le test que vous avez effectué pourquoi ?
-    - Le résultat de ce test, ainsi que votre interprétations.
+La forme du compte rendu attendue est constituée de deux fichiers : le rapport au format compilé (knit) (HTML,PDF,Word...) et le fichier Rmarkdown (.Rmd). Le rapport contiendra pour chaque question : 
+    - le test effectué et sa motivation
+    - Le résultat du test, ainsi que votre interprétation.
  
-En cas de problème avec la création de votre rapport à partir du Rmarkdown. Ne paniquez pour que je puisse vous noté il me faut juste un fichier PDF[^1]/Word/Html contenant votre rapport ainsi que votre code au format R ou Rmd par conséquent j'accepte aussi les fichier Rmd qui ne compile pas ainsi que rapport + code.
+En cas de problème avec la création de votre rapport à partir du Rmarkdown, ne paniquez pas. Pour l'évaluation, il faut juste un fichier PDF[^1]/Word/Html contenant votre rapport ainsi que votre code au format R ou Rmd. Par conséquent les fichier Rmd qui ne compilent pas ainsi que rapport + code sont recevables.
 
-[^1]: Pour rappel vous pouvez facilement crée un document pdf à partir de word ou google doc en utilisant *enregistrer sous*.
+[^1]: Pour rappel vous pouvez facilement créer un document pdf à partir de word ou google doc en utilisant *enregistrer sous*.
 
-**Attention les P-value et test absent du code R mais commenté ou les hypothèse non vérifié dans le code R conduiront à une perte de points -0.5pts par occurence**
+**Attention les P-values et tests absents du code R mais commentés ou les hypothèse non vérifiées dans le code R conduiront à une perte de 0.5 point par occurence**
 
 
-## Résumédes document a rendre
-   - Un fichier Rmd + rapport knit a partir du fichier (format PDF/word/html) (0.5 pts bonus)
-   - Un fichier R ou Rmd + Votre rapport un format PDF/Word 
+## Résumé des documents à rendre
+   - Un fichier Rmd + votre rapport knit à partir du fichier (format PDF/word/html) (0.5 point bonus)
+   - Un fichier R ou Rmd + votre rapport au format PDF/Word 
    
 
 
-TD noté sur 10 points (ramener sur 20)  6 points de questions +1 points si vos code R tourne sans erreur + 1 points sur la qualité générale du rapport + 2points sur l'utilisation de graphique pour visualiser les données (0.5 pts par graphique pertinent) **je m'autorise à retirer des points en cas d'abus par exemple si vous produisez un grand nombres de graphiques par questions sans réfléchir à leur pertinences**.
+TD noté sur 10 points (ramené sur 20)  6 points pour les questions + 1 point si vos code R tournent sans erreur + 1 point sur la qualité générale du rapport + 2 points sur l'intégration de graphiques pour visualiser les données (0.5 pt par graphique pertinent) **en cas d'abus, par exemple si vous produisez un grand nombres de graphiques par question sans réfléchir à leur pertinence, des points pourront être retirés**.
 
 
-A cela s'ajoute un points bonus sur les intérprétations biologique et pharmaceutique.
-un points bonus sur une représentation graphique non présenté en TD.
-0.5 points Bonus sur le fait de commenter votre code R en utilisant : \# suivie de texte pour expliquer ce que vous essayer de faire
-0.5 Points pour avoir knit votre rapport depuis votre Rmd
+A cela s'ajoute 
+un point bonus sur les intérprétations biologiques et pharmaceutiques
+un points bonus sur une représentation graphique non présentée en TD
+0.5 point bonus sur le fait de commenter votre code R en utilisant : \# suivi de texte pour expliquer ce que vous essayez de faire
+0.5 point pour avoir knit votre rapport depuis votre Rmd
 
 
-Les points au dessus des questions sont données a titre indicatifs et sont suceptible de changer.
+Les points mentionnés en regard des questions sont donnés à titre indicatif et sont suceptibles de changer.
 
 # Aide à l'ouverture des fichiers de données
-Vous avez un jeux de données par questions il s'appelle **question_x** et je vous les fournis au format xlsx et csv.
+Vous avez un jeu de données par question il s'appelle **question_x** et il est fourni au format xlsx et csv.
 
 
-Si vous mettez les fichiers dans le même dossiers que votre scipt Rmd vous pouvez utilisez la ligne de code présenté au début de chaque question pour ouvrir le fichier approprié.
+Si vous mettez les fichiers dans le même dossier que votre scipt Rmd vous pouvez utiliser la ligne de code présentée au début de chaque question pour ouvrir le fichier approprié.
 
 
-Sinon vous pouvez utiliser le bouton en haut a droite de l'interface de R studio  
+Sinon vous pouvez utiliser le bouton en haut à droite de l'interface de R studio  
 
 
 ```{r}
 knitr::include_graphics("images/print_screen1.pdf")
 ```
 
-Selectionner les paramètres approprié   
+Selectionner les paramètres appropriés   
 
 
 ```{r}
 knitr::include_graphics("images/print_screen2.pdf")
 ```
 
-Ensuite faite un copié collé de la seconde ligne de commande dans votre terminal R   
+Ensuite faite un copier coller de la seconde ligne de commande dans votre terminal R   
 
 
 ```{r}
@@ -106,27 +107,27 @@ knitr::include_graphics("images/print_screen3.pdf")
 
 
   
-# Question 1 (1pts)  
+# Question 1 (1 pt)  
 ```{r eval=FALSE, echo=TRUE}
 question_1 <- read.csv("data_set_cc/question_1.csv")
 ```
-Ce jeux de données contient l'age de tous les patients de l'étude mentionner plus haut.
+Ce jeu de données contient l'âge de tous les patients de l'étude mentionnée plus haut.
 
 
-On vous affirme que l'ages des patients n'est pas représentatifs de l'age moyen de la population française qui est de 41.2 ans. Testez cette affirmation.
+On vous affirme que l'âge des patients n'est pas représentatif de l'âge moyen de la population française qui est de 41.2 ans. Testez cette affirmation.
 
-# Question 2 (1pts)
+# Question 2 (1 pt)
 ```{r eval=FALSE, echo=TRUE}
 question_2 <- read.csv("data_set_cc/question_2.csv")
 ```
-Ce jeux de données contiens :
-     - l'ages des patients 
-     - Ainsi que leur statuts traité par Hydroxychloroquine oui ou non
+Ce jeu de données contient :
+     - l'âge des patients 
+     - la présence ou l'absence de traitement par hydroxychloroquine
     
     
-L'age des patients est il différentes dans les 2 groupes traité et non traité par Hydroxychloroquine ?  
+L'âge des patients est-il différent dans les 2 groupes selon la prise ou non du traitement par hydroxychloroquine ?  
 
-Pour sectionner les patients par groupes vous pouvez utiliser le code ci-dessous.
+Pour selectionner les patients par groupe vous pouvez utiliser le code ci-dessous.
 ```{r eval=FALSE, echo=TRUE}
 age_tt <- question_2$age[question_2$hydroxychloroquine == "Yes"]
 
@@ -134,24 +135,24 @@ age_non_tt <- question_2$age[question_2$hydroxychloroquine == "No"]
 ```
 
 
-# Question 3 (1pts)  
+# Question 3 (1 pt)  
 ```{r eval=FALSE, echo=TRUE}
 question_3 <- read.csv("data_set_cc/question_3.csv")
 ```
-Ce jeux de données contiens :
+Ce jeu de données contient :
      - hydroxychloroquine_Q3 : Concentration d'Hydroxychloroquine dans le serum des patients en µg/ml
-     - azytro: Statuts traité par Azithromycin oui ou non
+     - azytro:  traitement par azithromycine oui ou non
     
     
 
 
-Pour sectionner les patients par groupes vous pouvez utiliser le code ci-dessous
+Pour selectionner les patients par groupe vous pouvez utiliser le code ci-dessous
 ```{r eval=FALSE, echo=TRUE}
 serum_hydroxy_azitro <- question_3$hydroxychloroquine_Q3[question_3$azytro == "Yes"]
 
 serum_hydroxy_non_azitro <- question_3$hydroxychloroquine_Q3[question_3$azytro == "No"]
 ```
-On vous affirme que la moyenne de la concentration d'Hydroxychloroquine dans le serum des patients traité par Azithromycin est différentes de la concentrations moyennes des patients non traité par Azithromycin. Testez cette affirmation en utilisant **un test non paramétrique**.  
+On vous affirme que la moyenne de la concentration d'hydroxychloroquine dans le serum des patients traités par azithromycine est différente de la moyenne de la concentration d'hydroxychloroquine dans le serum des patients non traités par azithromycine. Testez cette affirmation en utilisant **un test non paramétrique**.  
 
 
 
@@ -161,37 +162,37 @@ On vous affirme que la moyenne de la concentration d'Hydroxychloroquine dans le 
 
 # Question 4 (4 pts)
 
-Le papier tente d'évaluer si les patients traité par Hydroxychloroquine ont-il des résultat de PCR au jour 6 différents des patients non traité. Je vous propose pour les questions suivante de reproduire cette annalyse de deux manière selon comment on traite les patients qui n'ont pas reçu de PCR au jour 6.
+L'article tente d'évaluer si les patients traités par hydroxychloroquine ont des résultats de PCR au jour 6 différents des patients non traités. Pour les questions suivantes vous devez reproduire cette analyse selon les deux manières suivantes selon laméthode d'imputation des patients qui n'ont pas eu de PCR au jour 6.
 
-La première (question 4.1) comme dans le papier on considère que les patients traité ont une PCR négative et les patients non traité on une PCR positive
+La première manière (question 4.1), comme dans l'article,  considère que les patients traités ont une PCR négative et les patients non traités ont une PCR positive
 
-La seconde (question 4.2) les patients n'ayant pas reçu de PCR au jour 6 sont simplement écarté.
+La seconde manière (question 4.2) considère que les patients n'ayant pas reçu de PCR au jour 6 sont simplement écartés.
 
 ```{r}
 question_4 <- read.csv("data_set_cc/question_4_1.csv")
 ```
 Les variables dans les deux jeux de données sont :
-PCR_1 ou PCR_2 : La PCR au 6eme jour est elle positive au COVID-19  
-hydroxychloroquine_1 ou hydroxychloroquine_2 : Le patient est il oui ou non traité par Hydroxychloroquine.
+PCR_1 ou PCR_2 : La PCR au 6eme jour est elle oui ou non positive   
+hydroxychloroquine_1 ou hydroxychloroquine_2 : Le patient est il oui ou non traité par hydroxychloroquine.
 
 ## Question 4.1 (1.25 pts)
-**Je vous laisse adapter le code fournis plus haut pour charger les jeux de données et selectionner les patients par groupes**
-Avec le jeux de données question_4_1 tester l'hypothèse suivante : les patients traité par Hydroxychloroquine ont-il des PCR au jour 6 différents des patients non traité. 
+**Le code fourni plus haut doit être adapté pour charger les jeux de données et selectionner les patients par groupe**
+Avec le jeu de données question_4_1 tester l'hypothèse suivante : les patients traités par hydroxychloroquine ont-ils des résultats de PCR au jour 6 différents des patients non traité. 
 
 ## Question 4.2 (1.25 pts)
-Avec le jeux de données question_4_2 tester l'hypothèse suivante : les patients traité par Hydroxychloroquine ont-il des PCR au jour 6 différents des patients non traité. 
+Avec le jeu de données question_4_2 tester l'hypothèse suivante : les patients traités par hydroxychloroquine ont-ils des résultats de PCR au jour 6 différents des patients non traité. 
 
-**Normalement vous pouvez réutiliser exactement le meme code que pour la question 4_1**
+**Normalement vous pouvez utiliser exactement le même code pour la question 4_1 et 4_2**
 
 
 
-## Commenter et comparer ces résutlats (0.5 pts)
+## Commenter et comparer ces résutlats (0.5 pt)
 
-## Conclusion (1pts bonus)
+## Conclusion (1 pt bonus)
 
-Discuter ces résultat dans un contexte pharmaceutique ?
+Discuter ces résultats dans un contexte pharmaceutique 
 
-Donner votre avis sur ces méthode d'imputations et leurs conséquences potentiel ?
+Donner votre avis sur ces méthodes d'imputation et leurs conséquences potentielles
 
-Autres surprenez moi !!
+Surprenez moi !!
 
