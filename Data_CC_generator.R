@@ -1,8 +1,8 @@
 # Question 1 
 Hydroxychloroquine <- read.table("data/chloroquin_data_set.txt",sep=" ",header = TRUE,fileEncoding = "utf8")
 data_set_pharma <- function(df,path){
-  write.csv(df,paste0("data_set_cc/",path,".csv"), row.names = FALSE)
-  xlsx::write.xlsx(df,paste0("data_set_cc/",path,".xlsx"), row.names = FALSE)
+  write.csv(df,paste0("data_set_cc/",path,".txt"), row.names = FALSE)
+  xlsx::write.xlsx(df,paste0("data_set_cc/",path,".xls"), row.names = FALSE)
 }
 
 data_set_pharma(data.frame(age = Hydroxychloroquine$Age.years.),"question_1")

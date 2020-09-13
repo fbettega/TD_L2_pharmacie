@@ -109,7 +109,7 @@ knitr::include_graphics("images/print_screen3.pdf")
   
 # Question 1 (1 pt)  
 ```{r eval=FALSE, echo=TRUE}
-question_1 <- read.csv("data_set_cc/question_1.csv")
+question_1 <- read.csv("data_set_cc/question_1.txt")
 ```
 Ce jeu de données contient l'âge de tous les patients de l'étude mentionnée plus haut.
 
@@ -118,7 +118,7 @@ On vous affirme que l'âge des patients n'est pas représentatif de l'âge moyen
 
 # Question 2 (1 pt)
 ```{r eval=FALSE, echo=TRUE}
-question_2 <- read.csv("data_set_cc/question_2.csv")
+question_2 <- read.csv("data_set_cc/question_2.txt")
 ```
 Ce jeu de données contient :
      - l'âge des patients 
@@ -137,7 +137,7 @@ age_non_tt <- question_2$age[question_2$hydroxychloroquine == "No"]
 
 # Question 3 (1 pt)  
 ```{r eval=FALSE, echo=TRUE}
-question_3 <- read.csv("data_set_cc/question_3.csv")
+question_3 <- read.csv("data_set_cc/question_3.txt")
 ```
 Ce jeu de données contient :
      - hydroxychloroquine_Q3 : Concentration d'Hydroxychloroquine dans le serum des patients en µg/ml
@@ -169,7 +169,7 @@ La première manière (question 4.1), comme dans l'article,  considère que les 
 La seconde manière (question 4.2) considère que les patients n'ayant pas reçu de PCR au jour 6 sont simplement écartés.
 
 ```{r}
-question_4 <- read.csv("data_set_cc/question_4_1.csv")
+question_4 <- read.csv("data_set_cc/question_4_1.txt")
 ```
 Les variables dans les deux jeux de données sont :
 PCR_1 ou PCR_2 : La PCR au 6eme jour est elle oui ou non positive   
